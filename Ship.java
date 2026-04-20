@@ -14,7 +14,6 @@ public class Ship {
 
 
 
-
  public Ship (int durability) {
     this.durability = durability;
     this.currentHP = durability;
