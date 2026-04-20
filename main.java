@@ -1,3 +1,7 @@
+
+
+
+// This is a begaining page when a user launches the program they will land on this page 1st like welcoming message (Theo)
 public class main {
    public static void main(String[] arg) {
       System.out.println("Hello Ship");
