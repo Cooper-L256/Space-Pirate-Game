@@ -1,3 +1,4 @@
 # Bucket
 
-Currently, this repository contains 0 code. THis will be updated later.
+Currently, this repository contains 0 code. This will be updated later.
+
