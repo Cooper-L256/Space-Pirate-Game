@@ -4,7 +4,7 @@
  * This class represents a ship in the game. It has a durability, currentHP, and can have up to 3 upgrades installed. The durability is set when the ship is created and cannot be changed. The currentHP starts at the durability and can be reduced when the ship takes damage. The upgrades are stored in an array of strings, where each slot can hold one upgrade. The installUpgrade method allows you to install an upgrade in a specific slot.
  */
 
-public class Ship extends UniverseObject { // Defines the Ship class which inherits attributes from the UniverseObject class
+public class Ship {
  final int durability;
  int currentHP;
  String[] upgrades = new String[3];
@@ -16,7 +16,6 @@ public class Ship extends UniverseObject { // Defines the Ship class which inher
 
 
   public Ship(int durability) {
-    super(); // Call the constructor of the parent class
     this.durability = durability;
     this.currentHP = durability;
   }
