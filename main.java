@@ -6,7 +6,7 @@ public class Main {
    public static void main(String[] args) {
       System.out.println("Hello Ship");
       // Create a ship
-      Ship ship = new Ship(10);
+      Ship ship = new Ship(10, new int[]{5,10});
    System.out.println("Ship is currently at coordinates ("+ship.x+", "+ship.y+")");
    }
 }

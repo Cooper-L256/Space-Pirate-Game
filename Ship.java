@@ -30,7 +30,7 @@ public class Ship extends UniverseObject {
  * @author Cooper Lauer
  * @date 4/19/26
  */
-public Ship (int durability, int[] damageRange) {
+public Ship(int durability, int[] damageRange) {
   super();
     this.durability = durability;
     hp = durability;
