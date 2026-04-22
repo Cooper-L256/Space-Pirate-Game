@@ -6,20 +6,26 @@ public class Universe {
 
     // Gets an object from the grid
     public static UniverseObject getObject(int x, int y) {
-        if ((x < 10) && (y < 10) && (x >=0) && (y >= 0)) {
+        if ((x < 10) && (y < 10) && (x >= 0) && (y >= 0)) {
             if (grid[x][y] == null) {
                 return null;
-        } else {
+            } else {
                 return grid[x][y];
-        }
+            }
         }
         return null;
     }
+
     // Sets an object on the grid-- contains incomplete error handling, needs work
     public static void setObject(int x, int y, UniverseObject object) {
-        if ((x < 10) && (y < 10) && (x >=0) && (y >= 0)) {
-            grid[x][y] = object;
+        if ((x < 10) && (y < 10) && (x >= 0) && (y >= 0)) {
+            if (grid[x][y] != null) {
+                grid[x][y] = object;
+            }
         }
     }
 
+    public static void removeObject(UniverseObject object) {
+        grid[object.x][object.y] = null;
+    }
 }
