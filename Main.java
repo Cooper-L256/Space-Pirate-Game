@@ -25,8 +25,8 @@ public class Main {
       public static void main(String[] args) {
             setGUI(); // Sets up the window
             // Create a ship
-            Ship ship = new Ship(10, new int[] { 5, 10 });
-            print("Ship is currently at coordinates (" + ship.x + ", " + ship.y + ")");
+            Ship ship = new Ship("Ship 1", new int[]{0, 0}, 10, new int[] { 5, 10 });
+            print(ship.name+" is currently at coordinates (" + ship.coords[0] + ", " + ship.coords[1] + ")");
             // This next line was moved from outside the main method to inside where it
             // belongs
             game_message(); // a classs being called

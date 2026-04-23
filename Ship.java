@@ -30,8 +30,8 @@ public class Ship extends UniverseObject {
  * @author Cooper Lauer
  * @date 4/19/26
  */
-public Ship(int durability, int[] damageRange) {
-  super();
+public Ship(String name, int[] coords, int durability, int[] damageRange) {
+  super(name, coords);
     this.durability = durability;
     hp = durability;
     this.damageRange = damageRange;
@@ -46,8 +46,8 @@ public Ship(int durability, int[] damageRange) {
  * @author Cooper Lauer
  * @date 4/20/26
  */
-public Ship (int durability, int[] damageRange, String[] upgrades) {
-  super();
+public Ship (String name, int[] coords, int durability, int[] damageRange, String[] upgrades) {
+  super(name, coords);
     this.durability = durability;
     hp = durability;
     this.damageRange = damageRange;
