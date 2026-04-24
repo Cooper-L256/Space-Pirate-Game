@@ -1,4 +1,7 @@
 import javax.swing.*; // GUI library
+import java.awt.*;
+import java.awt.event.*;
+import javafx.stage.WindowEvent;
 
 // Use the print method to add text from anywhere
 
@@ -14,8 +17,7 @@ public class Main {
             Accessible.modifyContainer(panel); // Makes the panel more accessible, see Accessible.java
             frame.add(panel);
             frame.setSize(300, 300);
-            frame.setVisible(true);
-
+                        frame.setVisible(true);
       }
 
       private static void print(String text) {
