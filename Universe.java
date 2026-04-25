@@ -22,4 +22,24 @@ public class Universe {
         }
     }
 
+    /**
+     * Gets the size of the grid on the x-axis.
+     * @return the number of columns in the grid
+     * @author Cooper Lauer
+     * @date 4/25/2026
+     */
+    public static int getBoundsX () {
+return grid[0].length;
+}
+
+    /**
+     * Gets the size of the grid on the y-axis.
+     * @return the number of rows in the grid
+     * @author Cooper Lauer
+     * @date 4/25/2026
+     */
+    public static int getBoundsY () {
+return grid.length;
+}
+
 }
