@@ -11,14 +11,12 @@ public class Ship extends UniverseObject {
     * The maximum durability of the ship, set at creation and cannot be changed.
     */
    int durability;
-   int baseDurability; // The durability that exists regardless of upgrades
 
    /**
     * Array containing minimum and maximum damage values for attacks. Index 0 is
     * min, index 1 is max.
     */
    int[] damageRange = new int[2];
-   int[] baseDamageRange = new int[2];
 
    /**
     * Current health points of the ship. Starts at durability and decreases when
@@ -47,10 +45,8 @@ public class Ship extends UniverseObject {
    public Ship(String name, int[] coords, int durability, int[] damageRange) {
       super(name, coords);
       this.durability = durability;
-      this.baseDurability = durability;
       hp = durability;
       this.damageRange = damageRange;
-      this.baseDamageRange = damageRange;
    }
 
    /**
@@ -66,10 +62,8 @@ public class Ship extends UniverseObject {
    public Ship(String name, int[] coords, int durability, int[] damageRange, String[] upgrades) {
       super(name, coords);
       this.durability = durability;
-      this.baseDurability = durability;
       hp = durability;
       this.damageRange = damageRange;
-      this.baseDamageRange = damageRange;
       this.upgrades = upgrades;
    }
 
@@ -224,6 +218,25 @@ public class Ship extends UniverseObject {
    }
 
 }
+
+/**
+ * A standard variant of the Ship with balanced stats.
+ * StandardShips have 10 durability and deal 1-5 damage per attack.
+ * @author Cooper Lauer
+ * @date 4/25/26
+ */
+class StandardShip extends Ship {
+
+   /**
+    * Constructs a new StandardShip with balanced combat stats.
+    * Initializes with 10 durability and damage range of 1-5.
+    * @author Cooper Lauer
+    * @date 4/25/26
+    */
+   public StandardShip (String name, int[] coords) {
+super(name, coords, 10, new int[]{1,5});
+   }
+   }
 
 /**
  * An assault variant of the Ship with increased damage but lower durability.
