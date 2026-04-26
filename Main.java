@@ -44,7 +44,7 @@ public class Main {
       /// Removed the String[] arg argument as it was written due to Theo's confusion
       /// on how these thigns work and had no function
       public static void game_message() {
-            print(
+            System.out.println(
                         "Welcome to the game named FIND MY WAY TO FREEDOM, a game that requires you to think outside of the box. Every choice you make could matter. There is no room for mistakes. The survival of your crew is in your hands. Can you prove you are the Champion to save your people?");
 
             print(
@@ -56,4 +56,10 @@ public class Main {
             print(
                         "Livestock has vanished entirely. The great cattle ranches of the Americas, the sheep pastures of New Zealand, the pig farms of Europe, all reduced to bone fields. Herds that once numbered in the millions now exist only as scattered skeletons half buried in toxic dust. Domestic dogs and cats, the companions of humanity for thousands of years, starved in abandoned cities or succumbed to the same poisons that killed their owners. Somewhere in the ruins, a few feral survivors still wander, mutated and desperate, but they are not the creatures you remember The cities are tombs. Skyscrapers in New York, Tokyo, Shanghai, and London stand half collapsed, their steel skeletons twisted into grotesque shapes by the firestorms that followed the first strikes. Highways stretch empty for thousands of miles, choked with the rusted husks of vehicles whose drivers never made it home. Traffic lights still blink in some places, powered by failing solar cells, casting red and green shadows across streets where nothing moves. Libraries, museums, cathedrals, and concert halls, the monuments of human civilization, are silent ruins filled with ash");
       }
+}
+
+//  Getting player name whihc is relly important for cellecting user data. Thoe //
+public class userName{
+      String name = "john ";
+      System.out.println(name);
 }
