@@ -59,7 +59,9 @@ public class Main {
 }
 
 //  Getting player name whihc is relly important for cellecting user data. Thoe //
-public class userName{
+/* Commented out until I have time to make this actually work
+class userName{
       String name = "john ";
       System.out.println(name);
 }
+*/
