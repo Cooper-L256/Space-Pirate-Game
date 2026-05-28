@@ -1,7 +1,6 @@
 import javax.swing.*; // GUI library
-import java.awt.*;
-import java.awt.event.*;
-import javafx.stage.WindowEvent;
+import java.awt.event.ActionEvent;
+import java.util.function.Consumer;
 
 // Use the print method to add text from anywhere
 
@@ -23,12 +22,38 @@ public class Main {
       private static void print(String text) {
             panel.add(new JLabel(text));
       }
-
+      // A function that will add a textfield to the screen
+      // The argument is a function which will be executed when the user presses enter
+      private static JTextField userInput(String label, Consumer<ActionEvent> action) {
+            JTextField input = new JTextField();
+            input.getAccessibleContext().setAccessibleName(label);
+            JLabel inputLabel = new JLabel(label);
+            inputLabel.setLabelFor(input);
+            input.addActionListener(e -> action.accept(e));
+            panel.add(input);
+            panel.revalidate();
+            panel.repaint();
+            return input;
+      }
+      private static JTextField userInput(String label, Runnable action) {
+            JTextField input = new JTextField();
+            input.getAccessibleContext().setAccessibleName(label);
+            JLabel inputLabel = new JLabel(label);
+            inputLabel.setLabelFor(input);
+            input.addActionListener(e -> action.run());
+            panel.add(input);
+            panel.revalidate();
+            panel.repaint();
+            return input;
+      }
       public static void main(String[] args) {
             setGUI(); // Sets up the window
             // Create a ship
             Ship ship = new Ship("Ship 1", new int[]{0, 0}, 10, new int[] { 5, 10 });
             print(ship.name+" is currently at coordinates (" + ship.coords[0] + ", " + ship.coords[1] + ")");
+            userInput("name", e -> {
+                  print("Your name has been set to "+ ((JTextField) e.getSource()).getText());
+            });
             // This next line was moved from outside the main method to inside where it
             // belongs
             game_message(); // a classs being called
@@ -44,7 +69,7 @@ public class Main {
       /// Removed the String[] arg argument as it was written due to Theo's confusion
       /// on how these thigns work and had no function
       public static void game_message() {
-            System.out.println(
+            print(
                         "Welcome to the game named FIND MY WAY TO FREEDOM, a game that requires you to think outside of the box. Every choice you make could matter. There is no room for mistakes. The survival of your crew is in your hands. Can you prove you are the Champion to save your people?");
 
             print(
@@ -58,10 +83,3 @@ public class Main {
       }
 }
 
-//  Getting player name whihc is relly important for cellecting user data. Thoe //
-/* Commented out until I have time to make this actually work
-class userName{
-      String name = "john ";
-      System.out.println(name);
-}
-*/

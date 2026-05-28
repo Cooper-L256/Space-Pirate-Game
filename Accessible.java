@@ -15,12 +15,11 @@ public class Accessible {
 		if (!(c instanceof JComponent))
 			return;
 		c.setFocusCycleRoot(true);
-		c.setFocusTraversalPolicy(new LayoutFocusTraversalPolicy());
+		c.setFocusTraversalPolicy(new DefaultFocusTraversalPolicy());
 		JComponent jcomp = (JComponent) c; // Converts the container to a more generic class that has important
 											// functionality for the purposes of this method
 		// The following lines make it so that any widgets inside the modified container
 		// can be navigated with the up and down arrow keys via a screenreader
-
 		bind(jcomp, KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "GO_TO_PREVIOUS", new MoveFocus(0)); // Move to previous element on up arrow key
 		bind(jcomp, KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), "GO_TO_NEXT", new MoveFocus(1)); // Move to next element on down arrow key
 		bind(jcomp, KeyStroke.getKeyStroke(KeyEvent.VK_HOME, 0), "GO_TO_FIRST", new MoveFocus(2)); // Move to first element on left arrow key
