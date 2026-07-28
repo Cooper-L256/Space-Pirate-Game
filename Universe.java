@@ -76,17 +76,6 @@ public class Universe {
         }
     }
 
-    public static int[] findObject(UniverseObject object) {
-        for (int k = 0; k < grid.length; k++) {
-            for (int v = 0; v < grid[k].length; v++) {
-                if (Objects.equals(object, grid[k][v])) {
-                    return new int[]{k, v};
-                }
-            }
-        }
-        return new int[]{-1, -1};
-    }
-
     /**
      * Gets the size of the grid on the x-axis.
      * @return the number of columns in the grid
