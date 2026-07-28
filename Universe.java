@@ -52,7 +52,7 @@ public class Universe {
 
     // Removes an object on the grid
     public static void removeObject(UniverseObject object) {
-        int[] c = findObject(object);
+        int[] c = object.getCoords();
         grid[c[0]][c[1]] = null;
     }
 
