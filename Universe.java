@@ -97,7 +97,7 @@ public class Universe {
         return grid.length;
     }
 
-    public ArrayList<UniverseObject> getVisibleObjects () {
+    public static ArrayList<UniverseObject> getVisibleObjects () {
 ArrayList<UniverseObject> visibleObjects = new ArrayList<UniverseObject>();
 
 for (int y = 0; y < grid.length; y++) {

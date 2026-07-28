@@ -48,8 +48,13 @@ public class Ship extends UniverseObject {
 
 public ArrayList<Ship> getAvailableTargets () {
 ArrayList<Ship> targetableShips = new ArrayList<Ship>();
+ArrayList<UniverseObject> visibleObjects = Universe.getVisibleObjects();
 
-
+for (UniverseObject obj: visibleObjects) {
+   if (obj.getClass().getSimpleName().equals("Ship") && (obj.getCoords()[0] >= (super.coords[0] - targetRange)) && (obj.getCoords()[0] <= (super.coords[0] + targetRange)) && (obj.getCoords()[1] >= (super.coords[1] - targetRange)) && (obj.getCoords()[1] <= (super.coords[1] + targetRange))) {
+   targetableShips.add((Ship) obj);
+}
+}
 
 return targetableShips;
 }
