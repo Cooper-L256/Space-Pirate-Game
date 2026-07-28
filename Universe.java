@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Objects;
 // This class represents the universe in which the player will be moving around. It contains a grid of integers that represent the different locations in the universe
 // At this time, I am not sure how the grid will contain objects or ships, etc, but I hope to work that out in the future.
@@ -94,6 +95,20 @@ public class Universe {
      */
     public static int getBoundsY() {
         return grid.length;
+    }
+
+    public ArrayList<UniverseObject> getVisibleObjects () {
+ArrayList<UniverseObject> visibleObjects = new ArrayList<UniverseObject>();
+
+for (int y = 0; y < grid.length; y++) {
+    for (int x = 0; x < grid[0].length; x++) {
+if (grid[x][y] != null) {
+visibleObjects.add(grid[x][y]);
+}
+    }
+}
+
+return visibleObjects;
     }
 
 }
