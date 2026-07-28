@@ -1,4 +1,15 @@
-# Bucket
+# Cooper, Kaleb, and Theo's Space Game
 
-Currently, this repository contains 0 code. This will be updated later.
+## About
 
+This is a turn-based spaceship fighting and exploration game with a focus on blind accessibility.
+
+## Controls
+
+Keybinds have not been implemented yet.
+
+## Credits
+
+Cooper
+Kaleb
+Theo
