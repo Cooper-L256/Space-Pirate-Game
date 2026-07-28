@@ -6,4 +6,13 @@ public class UniverseObject {
         this.coords = c;
         Universe.setObject(c, this);
     }
+
+    public String getName () {
+return name;
+    }
+
+    public int[] getCoords () {
+return coords;
+    }
+
 }
