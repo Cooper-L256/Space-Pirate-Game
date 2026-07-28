@@ -60,6 +60,7 @@ public class Ship extends UniverseObject {
       }
 
       Universe.setObject(new int[]{super.coords[0], newY}, this);
+      Universe.removeObject(new int[]{super.coords[0], super.coords[1]});
    }
 
    public void moveBackward() {
@@ -71,6 +72,7 @@ public class Ship extends UniverseObject {
       }
 
       Universe.setObject(new int[]{super.coords[0], newY}, this);
+      Universe.removeObject(new int[]{super.coords[0], super.coords[1]});
    }
 
    public void moveLeft() {
@@ -82,6 +84,7 @@ public class Ship extends UniverseObject {
       }
 
       Universe.setObject(new int[]{newX, super.coords[1]}, this);
+      Universe.removeObject(new int[]{super.coords[0], super.coords[1]});
    }
 
    public void moveRight() {
@@ -93,6 +96,7 @@ public class Ship extends UniverseObject {
       }
 
       Universe.setObject(new int[]{newX, super.coords[1]}, this);
+      Universe.removeObject(new int[]{super.coords[0], super.coords[1]});
    }
 
    public void installUpgrade(String upgrade, int slot) {
