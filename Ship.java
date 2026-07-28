@@ -30,6 +30,14 @@ public class Ship extends UniverseObject {
       hp -= damage;
    }
 
+   public int getTargetRange () {
+      return targetRange;
+   }
+
+   public void setTargetRange (int targetRange) {
+      this.targetRange = targetRange;
+   }
+
    public int[] getDamageRange() {
       return damageRange;
    }
