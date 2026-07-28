@@ -1,29 +1,21 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Ship extends UniverseObject {
    int durability;
-
+   int targetRange;
    int[] damageRange = new int[2];
-
    int hp;
-
    String[] upgrades = new String[3];
 
    Random rand = new Random();
 
-   public Ship(String name, int[] coords, int durability, int[] damageRange) {
+   public Ship(String name, int[] coords, int durability, int targetRange, int[] damageRange) {
       super(name, coords);
       this.durability = durability;
       hp = durability;
+      this.targetRange = targetRange;
       this.damageRange = damageRange;
-   }
-
-   public Ship(String name, int[] coords, int durability, int[] damageRange, String[] upgrades) {
-      super(name, coords);
-      this.durability = durability;
-      hp = durability;
-      this.damageRange = damageRange;
-      this.upgrades = upgrades;
    }
 
    public int getHP() {
@@ -45,6 +37,14 @@ public class Ship extends UniverseObject {
    public void setDamageRange(int[] damageRange) {
       this.damageRange = damageRange;
    }
+
+public ArrayList<Ship> getAvailableTargets () {
+ArrayList<Ship> targetableShips = new ArrayList<Ship>();
+
+
+
+return targetableShips;
+}
 
    public void attack(Ship target) {
       int damage = rand.nextInt(damageRange[1] - damageRange[0]) + damageRange[0];
@@ -106,7 +106,7 @@ public class Ship extends UniverseObject {
 
       super.coords[0] = newX;
    }
-
+   
    public void installUpgrade(String upgrade, int slot) {
       upgrades[slot] = upgrade;
    }

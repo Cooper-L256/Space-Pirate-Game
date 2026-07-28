@@ -49,7 +49,7 @@ public class Main {
       public static void main(String[] args) {
             setGUI(); // Sets up the window
             // Create a ship
-            Ship ship = new Ship("Ship 1", new int[]{0, 0}, 10, new int[] { 5, 10 });
+            Ship ship = new Ship("Ship 1", new int[]{0, 0}, 10, 5, new int[] { 5, 10 });
             print(ship.name+" is currently at coordinates (" + ship.coords[0] + ", " + ship.coords[1] + ")");
             userInput("name", e -> {
                   print("Your name has been set to "+ ((JTextField) e.getSource()).getText());
