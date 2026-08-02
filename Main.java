@@ -12,15 +12,17 @@ public class Main {
       private static void setGUI() {
             frame = new JFrame("Space Pirates Beta");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            // Accessible.makeAppAccessible(frame); // Makes the panel more accessible, see Accessible.java
             panel = new JPanel();
-            Accessible.modifyContainer(panel); // Makes the panel more accessible, see Accessible.java
             frame.add(panel);
             frame.setSize(300, 300);
                         frame.setVisible(true);
       }
 
-      private static void print(String text) {
-            panel.add(new JLabel(text));
+      private static JLabel print(String text) {
+            JLabel label = new JLabel(text);
+            panel.add(label);
+            return label;
       }
       // A function that will add a textfield to the screen
       // The argument is a function which will be executed when the user presses enter
@@ -50,7 +52,9 @@ public class Main {
             setGUI(); // Sets up the window
             // Create a ship
             Ship ship = new Ship("Ship 1", new int[]{0, 0}, 10, new int[] { 5, 10 });
-            print(ship.name+" is currently at coordinates (" + ship.coords[0] + ", " + ship.coords[1] + ")");
+            Jsrol.output(ship.name);
+            // JLabel l = print(ship.name+" is currently at coordinates (" + ship.coords[0] + ", " + ship.coords[1] + ")");
+// l.requestFocusInWindow();
             userInput("name", e -> {
                   print("Your name has been set to "+ ((JTextField) e.getSource()).getText());
             });
