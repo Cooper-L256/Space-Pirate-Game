@@ -12,52 +12,21 @@ public class Main {
       private static void setGUI() {
             frame = new JFrame("Space Pirates Beta");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            // Accessible.makeAppAccessible(frame); // Makes the panel more accessible, see Accessible.java
             panel = new JPanel();
             frame.add(panel);
             frame.setSize(300, 300);
                         frame.setVisible(true);
       }
 
-      private static JLabel print(String text) {
-            JLabel label = new JLabel(text);
-            panel.add(label);
-            return label;
+      // A function that makes any active screen reader speak the given text
+      private static void print(String text) {
+            Jsrol.output(text);
       }
-      // A function that will add a textfield to the screen
-      // The argument is a function which will be executed when the user presses enter
-      private static JTextField userInput(String label, Consumer<ActionEvent> action) {
-            JTextField input = new JTextField();
-            input.getAccessibleContext().setAccessibleName(label);
-            JLabel inputLabel = new JLabel(label);
-            inputLabel.setLabelFor(input);
-            input.addActionListener(e -> action.accept(e));
-            panel.add(input);
-            panel.revalidate();
-            panel.repaint();
-            return input;
-      }
-      private static JTextField userInput(String label, Runnable action) {
-            JTextField input = new JTextField();
-            input.getAccessibleContext().setAccessibleName(label);
-            JLabel inputLabel = new JLabel(label);
-            inputLabel.setLabelFor(input);
-            input.addActionListener(e -> action.run());
-            panel.add(input);
-            panel.revalidate();
-            panel.repaint();
-            return input;
-      }
+
       public static void main(String[] args) {
             setGUI(); // Sets up the window
             // Create a ship
             Ship ship = new Ship("Ship 1", new int[]{0, 0}, 10, new int[] { 5, 10 });
-            Jsrol.output(ship.name);
-            // JLabel l = print(ship.name+" is currently at coordinates (" + ship.coords[0] + ", " + ship.coords[1] + ")");
-// l.requestFocusInWindow();
-            userInput("name", e -> {
-                  print("Your name has been set to "+ ((JTextField) e.getSource()).getText());
-            });
             // This next line was moved from outside the main method to inside where it
             // belongs
             game_message(); // a classs being called
