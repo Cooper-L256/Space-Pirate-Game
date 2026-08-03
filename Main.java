@@ -55,6 +55,17 @@ public class Main {
             policy.getFirstComponent(CurrentWindow).requestFocusInWindow();
       }
 
+      public static void addBinding(JComponent window, String name, String keyStroke, Runnable action) {
+            addBinding(window, name, KeyStroke.getKeyStroke(keyStroke), action);
+      }
+
+      public static void addBinding(JComponent window, String name, KeyStroke keyStroke, Runnable action) {
+            window.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(keyStroke, name);
+            window.getActionMap().put(name, new Binding(action));
+                  }
+            
+      
+
       // A function that makes any active screen reader speak the given text
       private static void print(String text) {
             Jsrol.output(text);
@@ -66,6 +77,10 @@ public class Main {
             Ship ship = new Ship("Ship 1", new int[]{0, 0}, 10, new int[] { 5, 10 });
             JPanel menu = createMenu(new JLabel("Hello. Welcome to Space Game, a very creative name for a game that has barely begun."), new JButton("Start Game"), new JButton("Settings"));
             openMenu(menu);
+            // Test binding code
+            addBinding(menu, "close_menu", "C", () -> closeMenu());
+            addBinding(panel, "open_menu", "O", () -> openMenu(menu));
+
             // This next line was moved from outside the main method to inside where it
             // belongs
             // To be moved somewhere else later in the game
@@ -96,3 +111,12 @@ public class Main {
       }
 }
 
+class Binding extends AbstractAction {
+      Runnable action;
+      public Binding(Runnable r) {
+            action = r;
+      }
+      public void actionPerformed(ActionEvent e) {
+            action.run();
+      }
+}
