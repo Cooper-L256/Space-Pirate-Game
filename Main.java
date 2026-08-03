@@ -4,6 +4,7 @@ import java.awt.FocusTraversalPolicy;
 import java.awt.event.ActionEvent;
 import java.util.function.Consumer;
 
+import javax.swing.border.Border;
 // Use the print method to add text from anywhere
 
 // This is a begaining page when a user launches the program they will land on this page 1st like welcoming message (Theo)
@@ -51,8 +52,7 @@ public class Main {
             CurrentWindow.setVisible(false);
             CurrentWindow = panel;
             CurrentWindow.setVisible(true);
-            FocusTraversalPolicy policy = CurrentWindow.getFocusTraversalPolicy();
-            policy.getFirstComponent(CurrentWindow).requestFocusInWindow();
+            CurrentWindow.requestFocusInWindow();
       }
 
       public static void addBinding(JComponent window, String name, String keyStroke, Runnable action) {
