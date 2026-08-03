@@ -1,4 +1,6 @@
 import javax.swing.*; // GUI library
+
+import java.awt.FocusTraversalPolicy;
 import java.awt.event.ActionEvent;
 import java.util.function.Consumer;
 
@@ -8,14 +10,49 @@ import java.util.function.Consumer;
 public class Main {
       static JFrame frame; // The variable that will contain the interface window
       static JPanel panel; // A container to put GUI widgets in
-
+      static JPanel CurrentWindow;
+      static FocusTraversalPolicy policy;
       private static void setGUI() {
             frame = new JFrame("Space Pirates Beta");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             panel = new JPanel();
+            panel.setFocusCycleRoot(true);
+            CurrentWindow = panel;
             frame.add(panel);
             frame.setSize(300, 300);
                         frame.setVisible(true);
+      }
+
+      private static JPanel createMenu(JComponent ...comps) {
+            JPanel panel = new JPanel();
+            Menu menu = new Menu();
+            for (JComponent comp : comps) {
+                  if (comp instanceof JLabel) {
+                        comp.setFocusable(true);
+                  }
+            menu.add(comp);
+      }
+            panel.add(menu);
+            frame.add(panel);
+            panel.setFocusCycleRoot(true);
+            panel.setVisible(false);
+      return panel;
+      }
+      private static void openMenu(JPanel menu) {
+            CurrentWindow.setVisible(false);
+            CurrentWindow = menu;
+            CurrentWindow.setVisible(true);
+            System.out.println(CurrentWindow.getClass().getName());
+            FocusTraversalPolicy policy = CurrentWindow.getFocusTraversalPolicy();
+            policy.getFirstComponent(CurrentWindow).requestFocusInWindow();
+      }
+
+            private static void closeMenu() {
+            CurrentWindow.setVisible(false);
+            CurrentWindow = panel;
+            CurrentWindow.setVisible(true);
+            FocusTraversalPolicy policy = CurrentWindow.getFocusTraversalPolicy();
+            policy.getFirstComponent(CurrentWindow).requestFocusInWindow();
       }
 
       // A function that makes any active screen reader speak the given text
@@ -27,9 +64,12 @@ public class Main {
             setGUI(); // Sets up the window
             // Create a ship
             Ship ship = new Ship("Ship 1", new int[]{0, 0}, 10, new int[] { 5, 10 });
+            JPanel menu = createMenu(new JLabel("Hello. Welcome to Space Game, a very creative name for a game that has barely begun."), new JButton("Start Game"), new JButton("Settings"));
+            openMenu(menu);
             // This next line was moved from outside the main method to inside where it
             // belongs
-            game_message(); // a classs being called
+            // To be moved somewhere else later in the game
+            // game_message(); // a classs being called
       }
 
       // This class prints the welcome statment and greeds thw players though I don't
