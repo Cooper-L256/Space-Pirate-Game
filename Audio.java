@@ -8,7 +8,7 @@ public class Audio {
       static AL al = ALFactory.getAL();
       static int[] buffer = new int[1];
       static int[] source = new int[1];
-      static float[] sourcePos = { -4.0f, -4.0f, 0.0f};
+      static float[] sourcePos = { 0.0f, 0.0f, 0.0f};
       static float[] sourceVel = { 0.0f, 0.0f, 0.0f}; // source velocity
       static float[] listenerPos = {0.0f, 0.0f, 0.0f};
       static float[] listenerVel = {0.0f, 0.0f, 0.0f}; // velocity
@@ -60,10 +60,19 @@ public class Audio {
             }
       }));
     }
-	public static void playSound(String fileName) {
+	public static void playSound(String fileName, float[] pos, float[] vel) {
+      sourcePos = (pos != null ? pos : new float[] {0.0f, 0.0f, 0.0f});
+      sourceVel = (vel != null ? vel : new float[] {0.0f, 0.0f, 0.0f});
 		      if (loadALData(fileName) == AL.AL_FALSE)
             System.exit(-1);
       setListenerValues();
       al.alSourcePlay(source[0]);
 	}
+      // overloads
+      public static void playSound(String fileName, float[] pos) {
+            playSound(fileName, pos, null);
+      }
+      public static void playSound(String fileName) {
+            playSound(fileName, null, null);
+      }
 }

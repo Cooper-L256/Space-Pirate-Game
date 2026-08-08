@@ -11,7 +11,7 @@ public static void main(String[] args) {
             // Test binding code
             Gui.addBinding(menu, "close_menu", "C", () -> Gui.closeMenu());
             Gui.addBinding(Gui.panel, "open_menu", "O", () -> Gui.openMenu(menu));
-            Gui.addBinding(Gui.panel, "PlaySound", "P", () -> Audio.playSound("bush"));
+            Gui.addBinding(Gui.panel, "PlaySound", "P", () -> Audio.playSound("bush", new float[]{3.0f, 0.0f, 0.0f}));
 
       }
 	}
