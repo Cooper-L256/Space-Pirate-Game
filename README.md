@@ -5,17 +5,42 @@
 This is a turn-based spaceship fighting and exploration game with a focus on blind accessibility.
 
 ## Compiling and Running
-When compiling a file that uses jsrol.jar, run javac \@build.args \<file\>
+### Note for Linux/MacOS
+You will have to make two files executable with two easy commands I will put right here.
+```
+chmod +x build.sh
+chmod +x run.sh
+```
+
+### Commands for Compiling and Running
+Command to compile:
+For Windows: build.bat <SourceFile>.java
 
 Example:
 ```
-javac @build.args Main.java
+build.bat Main.java
 ```
-When running that same file, run java \@run.args \<class-name\>
+
+For Linux/MacOS: ./build.sh <SourceFile>.java
 
 Example:
 ```
-java @run.args Main
+./build.sh Main.java
+```
+
+Command to run:
+For Windows: run.bat <ClassName>
+
+Example:
+```
+run.bat Main
+```
+
+For Linux/MacOS: ./run.sh <ClassName>
+
+Example:
+```
+./run.sh Main
 ```
 
 ### Menus
