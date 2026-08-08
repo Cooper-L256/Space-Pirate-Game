@@ -3,8 +3,8 @@ import javax.swing.*; // GUI library
 import java.awt.FocusTraversalPolicy;
 import java.awt.event.ActionEvent;
 import java.util.function.Consumer;
+import java.lang.Runnable;
 
-import javax.swing.border.Border;
 // Use the print method to add text from anywhere
 
 // This is a begaining page when a user launches the program they will land on this page 1st like welcoming message (Theo)
@@ -13,6 +13,7 @@ public class Gui {
       static JPanel panel; // A container to put GUI widgets in
       static JPanel CurrentWindow;
       static FocusTraversalPolicy policy;
+
       public static void setGUI() {
             frame = new JFrame("Space Pirates Beta");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
