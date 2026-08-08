@@ -6,7 +6,7 @@ This is a turn-based spaceship fighting and exploration game with a focus on bli
 
 ## Compiling and Running
 ### Note for Linux/MacOS
-You will have to make two files executable with two easy commands I will put right here.
+Linux and MacOS users will have to make two files executable with two easy commands I will put right here.
 ```
 chmod +x build.sh
 chmod +x run.sh
@@ -14,6 +14,7 @@ chmod +x run.sh
 
 ### Commands for Compiling and Running
 Command to compile:
+
 For Windows: build.bat <SourceFile>.java
 
 Example:
@@ -29,6 +30,7 @@ Example:
 ```
 
 Command to run:
+
 For Windows: run.bat <ClassName>
 
 Example:
