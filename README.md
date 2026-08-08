@@ -15,14 +15,14 @@ chmod +x run.sh
 ### Commands for Compiling and Running
 Command to compile:
 
-For Windows: build.bat <SourceFile>.java
+For Windows: build.bat \<SourceFile\>.java
 
 Example:
 ```
 build.bat Main.java
 ```
 
-For Linux/MacOS: ./build.sh <SourceFile>.java
+For Linux/MacOS: ./build.sh \<SourceFile\>.java
 
 Example:
 ```
@@ -31,14 +31,14 @@ Example:
 
 Command to run:
 
-For Windows: run.bat <ClassName>
+For Windows: run.bat \<ClassName\>
 
 Example:
 ```
 run.bat Main
 ```
 
-For Linux/MacOS: ./run.sh <ClassName>
+For Linux/MacOS: ./run.sh \<ClassName\>
 
 Example:
 ```
